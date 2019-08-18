@@ -17,7 +17,7 @@ H="\[$(tput setaf 33)\]"
 W="\[$(tput setaf 118)\]"
 P="\[$(tput setaf 99)\]"
 RESET="\[$(tput sgr0)\]"
-SHORT_PWD='$(python ~/scripts/short_pwd.py 20)'
+SHORT_PWD='$(python ~/scripts/short_pwd.py 25)'
 
 PS1="${BOLD}${D}[${U}\u${D}@${H}\h ${W}${SHORT_PWD}${D}]${P}\$${RESET} "
 

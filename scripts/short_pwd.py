@@ -8,7 +8,7 @@ def short_cwd():
         limit = int(sys.argv[1])
     except ValueError:
         return 'error'
-    if limit < 1:
+    if limit < 5:
         return 'error'
 
     home = os.environ['HOME']
@@ -18,9 +18,11 @@ def short_cwd():
 
     isHome = cwd.startswith(home)
     if isHome:
+        limit -= 1
         cwd = cwd[len(home):]
     truncated = len(cwd) > limit and '/' in cwd[1:]
-
+    if truncated:
+        limit -= 4
     while len(cwd) > limit and '/' in cwd[1:]:
         cwd = cwd[cwd.find('/', 1):]
 

@@ -5,12 +5,16 @@ endif
 set nocompatible
 filetype off
 
-set rtp+=/usr/share/vim/vimfiles/autoload/vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomasiser/vim-code-dark'
-Bundle "Valloric/YouCompleteMe"
+Plugin 'vim-syntastic/syntastic'
+Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
+
+"Bundle "Valloric/YouCompleteMe"
 call vundle#end()
 
 filetype plugin indent on
@@ -49,5 +53,19 @@ let g:ycm_min_num_of_chars_for_completion = 99
 
 " NerdTree settings
 map <C-n> :NERDTreeToggle<CR>
+
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Vim Racer
+let g:racer_experimental_completer = 1
+let g:racer_insert_paren = 1
 
 colorscheme codedark

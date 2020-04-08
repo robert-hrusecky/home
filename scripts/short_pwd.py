@@ -14,7 +14,10 @@ def short_cwd():
     home = os.environ['HOME']
     if home.endswith('/'):
         home = home[0:len(home) - 1]
-    cwd = os.getcwd()
+    try:
+        cwd = os.getcwd()
+    except FileNotFoundError:
+        return 'cwd not found'
 
     isHome = cwd.startswith(home)
     if isHome:

@@ -9,8 +9,10 @@ alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias grep='grep --color=auto'
 alias dmesg='dmesg --color'
+alias vim=nvim
 
-export EDITOR=vim
+export EDITOR="vi -e"
+export VISUAL="nvim"
 
 # Setup PS1
 BOLD="\[$(tput bold)\]"

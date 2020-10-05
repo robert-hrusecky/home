@@ -44,6 +44,8 @@ set splitright
 " set completeopt-=preview
 set incsearch
 set ttimeoutlen=2
+set nojoinspaces
+set cursorline
 
 " -------------------- Mappings -------------------- "
 let mapleader = ","

@@ -58,12 +58,26 @@ nnoremap <C-x> i<C-x>
 nnoremap <Leader>p o<ESC>p
 nnoremap <Leader>P O<ESC>p
 " Window movement
-nnoremap <C-h> <C-w><C-h>
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
-nnoremap <Leader><C-k> <C-k>
-nnoremap <Leader><C-l> <C-l>
+tnoremap <A-h> <C-\><C-N><C-w>h
+tnoremap <A-j> <C-\><C-N><C-w>j
+tnoremap <A-k> <C-\><C-N><C-w>k
+tnoremap <A-l> <C-\><C-N><C-w>l
+inoremap <A-h> <C-\><C-N><C-w>h
+inoremap <A-j> <C-\><C-N><C-w>j
+inoremap <A-k> <C-\><C-N><C-w>k
+inoremap <A-l> <C-\><C-N><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+" ESC to exit terminal mode
+tnoremap <Esc> <C-\><C-n>
+augroup myterm
+    au!
+    " Disable spell checking in terminals
+    au TermOpen * setlocal nospell
+augroup end
 
 " Time to inflict some self-harm
 inoremap <Left> <Nop>

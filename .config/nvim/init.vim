@@ -75,6 +75,8 @@ nnoremap <A-l> <C-w>l
 
 " ESC to exit terminal mode
 tnoremap <Esc> <C-\><C-n>
+" For nested vim sessions
+tnoremap <A-e> <Esc>
 augroup myterm
     au!
     " Disable spell checking in terminals
@@ -272,6 +274,9 @@ nmap <Leader>ef :CocCommand explorer --preset floating<CR>
 
 " List all presets
 nmap <Leader>el :CocList explPresets
+
+" -------------------- neovim-remote -------------------- "
+let $GIT_EDITOR = 'nvr -cc vsplit --remote-wait'
 
 " -------------------- colorscheme -------------------- "
 colorscheme codedark

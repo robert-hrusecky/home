@@ -9,7 +9,8 @@ alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias grep='grep --color=auto'
 alias dmesg='dmesg --color'
-alias vim=nvim
+alias vim='\nvim'
+alias nvim='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
 
 export EDITOR="vi -e"
 export VISUAL="nvim"

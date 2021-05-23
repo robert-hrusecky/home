@@ -18,11 +18,12 @@ Plug 'tpope/vim-surround'
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Frontends 
+" Frontends
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 " Languages/Syntax
-Plug 'cespare/vim-toml'
+" Plug 'cespare/vim-toml'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -46,14 +47,14 @@ set incsearch
 set ttimeoutlen=2
 set nojoinspaces
 set cursorline
+set guifont=SauceCodePro\ Nerd\ Font\ Mono:11,Noto\ Color\ Emoji:11
 
 " -------------------- Mappings -------------------- "
 let mapleader = ","
 " Reload vimrc
 nnoremap <silent> <Leader>r :source $MYVIMRC<CR>
 nnoremap <silent> <Leader>vrc :tabe $MYVIMRC<CR>
-" :noh on enter
-" nnoremap <silent> <CR> :noh<CR><CR>
+nnoremap <silent> <Leader>/ :noh<CR>
 " Enter insert mode for omni-completion
 nnoremap <C-x> i<C-x>
 " Paste on new line

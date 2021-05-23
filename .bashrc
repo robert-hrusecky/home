@@ -28,6 +28,7 @@ PS1="${BOLD}${D}[${U}\u${D}@${H}\h ${W}${SHORT_PWD}${D}]${P}\$${RESET} "
 unset BOLD D U H W P RESET SHORT_PWD
 
 export PATH=/opt/cuda/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 
 # Git bash completion
 source /usr/share/git/completion/git-completion.bash

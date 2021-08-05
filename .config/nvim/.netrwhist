@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/robert/workspace/fun/fabpack/src'
+let g:netrw_dirhist_0='/home/robert/.xmonad'
+let g:netrw_dirhist_9='/home/robert/workspace/fun/impulsewm/src/window_manager'
+let g:netrw_dirhist_8='/home/robert/workspace/fun/impulsewm/src'
+let g:netrw_dirhist_7='/home/robert/workspace/fun/impulsewm'
+let g:netrw_dirhist_6='/home/robert/workspace/fun/impulsewm/src/window_manager'
+let g:netrw_dirhist_5='/home/robert/workspace/fun/impulsewm/src'
+let g:netrw_dirhist_4='/home/robert/workspace/fun/impulsewm'
+let g:netrw_dirhist_3='/home/robert/workspace/fun'
+let g:netrw_dirhist_2='/home/robert/workspace'

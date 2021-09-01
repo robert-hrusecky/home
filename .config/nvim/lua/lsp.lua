@@ -1,7 +1,24 @@
+local M = {}
+
 lsp = require("lspconfig")
+utils = require("utils")
 
 lsp.rust_analyzer.setup{}
 lsp.jedi_language_server.setup{}
+lsp.gopls.setup{
+    flags = {
+        debounce_text_changes = 500
+    }
+}
+
+-- augroup
+
+utils.define_augroups{
+    _go_format = {
+        {"BufWritePre", "*.go", "lua vim.lsp.buf.formatting_sync(nil,1000)"},
+        {"BufWritePre", "*.go", "lua require('lsp').goImports(1000)"}
+    }
+}
 
 -- LSP Mappings
 vim.cmd([[
@@ -17,6 +34,23 @@ nnoremap <silent> gA <cmd>lua vim.lsp.buf.formatting()<CR>
 vnoremap <silent> gA <cmd>lua vim.lsp.buf.range_formatting()<CR>
 ]])
 
+-- go
+
+M.goImports = function(timeout_ms)
+    local params = vim.lsp.util.make_range_params()
+    params.context = {only = {"source.organizeImports"}}
+    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
+
+    for _, res in pairs(result or {}) do
+        for _, r in pairs(res.result or {}) do
+            if r.edit then
+                vim.lsp.util.apply_workspace_edit(r.edit)
+            else
+                vim.lsp.buf.execute_command(r.command)
+            end
+        end
+    end
+end
 
 -- compe
 vim.o.completeopt = "menuone,noselect"
@@ -58,3 +92,5 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 ]])
+
+return M

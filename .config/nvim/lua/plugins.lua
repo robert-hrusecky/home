@@ -19,7 +19,13 @@ return require("packer").startup(
         -- Completion/LSP
         -- use "neoclide/coc.nvim", {"branch": "release"}
         use "neovim/nvim-lspconfig"
-        use "hrsh7th/nvim-compe"
+        -- use "hrsh7th/nvim-compe"
+        use "hrsh7th/nvim-cmp"
+        use "hrsh7th/cmp-nvim-lsp"
+        use "hrsh7th/cmp-vsnip"
+        use "hrsh7th/cmp-path"
+        use "hrsh7th/cmp-buffer"
+        use "hrsh7th/vim-vsnip"
         
         -- Frontends
         -- use "glacambre/firenvim", { "do": { _ -> firenvim#install(0) } }
@@ -27,12 +33,17 @@ return require("packer").startup(
         -- Languages/Syntax
         -- use "cespare/vim-toml"
         use "sheerun/vim-polyglot"
+        use "simrat39/rust-tools.nvim"
 
         -- Tree-sitter
         use {
             "nvim-treesitter/nvim-treesitter",
             branch = "0.5-compat",
-            run = ":TSUpdate"
+            run = ":TSUpdate",
+        }
+        use {
+            "nvim-treesitter/nvim-treesitter-textobjects",
+            branch = "0.5-compat",
         }
     end
 )

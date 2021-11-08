@@ -7,7 +7,7 @@ end
 
 vim.api.nvim_command('packadd packer.nvim')
 
-local no_errors = pcall(function()
+local no_errors, error_msg = pcall(function()
 
   local time
   local profile_info
@@ -69,9 +69,25 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["nvim-compe"] = {
+  ["cmp-buffer"] = {
     loaded = true,
-    path = "/home/robert/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "/home/robert/.local/share/nvim/site/pack/packer/start/cmp-buffer"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/robert/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/home/robert/.local/share/nvim/site/pack/packer/start/cmp-path"
+  },
+  ["cmp-vsnip"] = {
+    loaded = true,
+    path = "/home/robert/.local/share/nvim/site/pack/packer/start/cmp-vsnip"
+  },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/home/robert/.local/share/nvim/site/pack/packer/start/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -81,9 +97,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/robert/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
+  ["nvim-treesitter-textobjects"] = {
+    loaded = true,
+    path = "/home/robert/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/robert/.local/share/nvim/site/pack/packer/start/packer.nvim"
+  },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/home/robert/.local/share/nvim/site/pack/packer/start/rust-tools.nvim"
   },
   ["vim-afterimage"] = {
     loaded = true,
@@ -116,6 +140,10 @@ _G.packer_plugins = {
   ["vim-tbone"] = {
     loaded = true,
     path = "/home/robert/.local/share/nvim/site/pack/packer/start/vim-tbone"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "/home/robert/.local/share/nvim/site/pack/packer/start/vim-vsnip"
   }
 }
 
@@ -125,5 +153,5 @@ if should_profile then save_profiles() end
 end)
 
 if not no_errors then
-  vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: ".v:exception | echom "Please check your config for correctness" | echohl None')
+  vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end

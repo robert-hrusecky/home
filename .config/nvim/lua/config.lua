@@ -4,8 +4,7 @@ vim.o.ignorecase = true
 vim.o.nu = true
 vim.o.wrap = false
 vim.o.sidescroll = 5
--- vim.opt.listchars:append { precedes = "<", extends = ">" } -- currently broken due to .trim() bug
-vim.o.listchars = vim.o.listchars .. ",precedes:<,extends:>" -- workaround
+vim.opt.listchars:append { precedes = "<", extends = ">" }
 vim.o.spell = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
